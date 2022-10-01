@@ -15,6 +15,10 @@
 		7738E6B828E784C300482FEF /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7738E6B728E784C300482FEF /* SettingsViewController.swift */; };
 		7738E6BA28E7852000482FEF /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7738E6B928E7852000482FEF /* GameViewController.swift */; };
 		773AD84028E78EB700EE107B /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773AD83F28E78EB700EE107B /* Settings.swift */; };
+		773AD84F28E8D12000EE107B /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773AD84B28E8D12000EE107B /* Game.swift */; };
+		773AD85028E8D12000EE107B /* Flow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773AD84C28E8D12000EE107B /* Flow.swift */; };
+		773AD85128E8D12000EE107B /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773AD84D28E8D12000EE107B /* Result.swift */; };
+		773AD85228E8D12000EE107B /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773AD84E28E8D12000EE107B /* Task.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +32,10 @@
 		7738E6B728E784C300482FEF /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		7738E6B928E7852000482FEF /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		773AD83F28E78EB700EE107B /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		773AD84B28E8D12000EE107B /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		773AD84C28E8D12000EE107B /* Flow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flow.swift; sourceTree = "<group>"; };
+		773AD84D28E8D12000EE107B /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		773AD84E28E8D12000EE107B /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +52,7 @@
 		7738E69628E7842700482FEF = {
 			isa = PBXGroup;
 			children = (
+				773AD84A28E8D12000EE107B /* EdutainmentEngineTwo */,
 				7738E6A128E7842700482FEF /* EdutainmentUI */,
 				7738E6A028E7842700482FEF /* Products */,
 			);
@@ -87,6 +96,17 @@
 				773AD83F28E78EB700EE107B /* Settings.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		773AD84A28E8D12000EE107B /* EdutainmentEngineTwo */ = {
+			isa = PBXGroup;
+			children = (
+				773AD84B28E8D12000EE107B /* Game.swift */,
+				773AD84C28E8D12000EE107B /* Flow.swift */,
+				773AD84D28E8D12000EE107B /* Result.swift */,
+				773AD84E28E8D12000EE107B /* Task.swift */,
+			);
+			path = EdutainmentEngineTwo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,10 +180,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				773AD85028E8D12000EE107B /* Flow.swift in Sources */,
 				7738E6BA28E7852000482FEF /* GameViewController.swift in Sources */,
+				773AD84F28E8D12000EE107B /* Game.swift in Sources */,
 				7738E6A328E7842700482FEF /* AppDelegate.swift in Sources */,
 				7738E6A528E7842700482FEF /* SceneDelegate.swift in Sources */,
 				7738E6B828E784C300482FEF /* SettingsViewController.swift in Sources */,
+				773AD85128E8D12000EE107B /* Result.swift in Sources */,
+				773AD85228E8D12000EE107B /* Task.swift in Sources */,
 				773AD84028E78EB700EE107B /* Settings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
