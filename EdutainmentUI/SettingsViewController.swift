@@ -66,4 +66,43 @@ class SettingsViewController: UIViewController {
     @IBAction func rangeToStepper(_ sender: UIStepper) {
         rangeTo = UInt(sender.value)
     }
+    
+    
+    // MARK: Number of tasks Setting
+    var numberOfTasks: UInt {
+        get {
+            let n = flow.getAmountOfAllIterations()
+            numberOfTasksLabel.text = "\(n)"
+            return n
+        } set {
+            let n = UInt(newValue)
+            flow.setAmountOfAllIterations(n)
+            numberOfTasksLabel.text = "\(n)"
+        }
+    }
+    
+    @IBOutlet weak var numberOfTasksLabel: UILabel!
+    
+    @IBAction func numberOfTasksSlider(_ sender: UISlider) {
+        numberOfTasks = UInt(sender.value)
+    }
+    
+    
+    // MARK: Number of tasks Setting
+    
+    @IBAction func startBtn() {
+        do {
+            try flow.setGameRange(min: rangeFrom, max: rangeTo)
+            flow.currentStatus = .started
+            flow.start()
+        } catch let error as Flow.GameError {
+            let errorMessageController = ErrorMessagesController()
+            errorMessageController.gameErrorMsg(for: error)
+            
+        } catch {
+            
+        }
+        
+        
+    }
 }

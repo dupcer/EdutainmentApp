@@ -107,27 +107,79 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="5" maxValue="500" translatesAutoresizingMaskIntoConstraints="NO" id="dkt-uH-ZFg">
+                                <rect key="frame" x="18" y="471" width="378" height="31"/>
+                                <color key="minimumTrackTintColor" systemColor="systemGreenColor"/>
+                                <color key="maximumTrackTintColor" systemColor="systemRedColor"/>
+                                <connections>
+                                    <action selector="numberOfTasksSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="18w-RE-5GH"/>
+                                </connections>
+                            </slider>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="rmk-Su-5pi">
+                                <rect key="frame" x="154" y="415.5" width="106.5" height="47.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of tasks" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4hy-Vs-uHF">
+                                        <rect key="frame" x="0.0" y="0.0" width="106.5" height="17"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zu4-xc-MxD">
+                                        <rect key="frame" x="33" y="27" width="40" height="20.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="67S-i1-yoy"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="4hy-Vs-uHF" firstAttribute="centerX" secondItem="rmk-Su-5pi" secondAttribute="centerX" id="UWw-TH-E4o"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="808-Ln-2y0">
+                                <rect key="frame" x="129" y="818" width="156" height="44"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Start" titleAlignment="center">
+                                    <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle1"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="startBtn" destination="BYZ-38-t0r" eventType="touchUpInside" id="yrF-ER-W60"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <color key="tintColor" systemColor="systemOrangeColor"/>
                         <constraints>
+                            <constraint firstItem="808-Ln-2y0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="129" id="0fk-YM-71M"/>
                             <constraint firstItem="PxG-y5-xW9" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="2b5-GK-69G"/>
                             <constraint firstItem="6LJ-4H-Otc" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="5jH-6e-tT5"/>
+                            <constraint firstItem="dkt-uH-ZFg" firstAttribute="top" secondItem="rmk-Su-5pi" secondAttribute="bottom" constant="8" symbolic="YES" id="84A-sf-DJz"/>
                             <constraint firstItem="TUf-AM-4RE" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Dxv-kw-K8Y"/>
                             <constraint firstItem="h7C-5x-5nA" firstAttribute="top" secondItem="hU6-eg-63b" secondAttribute="bottom" constant="8" symbolic="YES" id="MJh-ZI-4sD"/>
                             <constraint firstItem="h7C-5x-5nA" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="TjU-2T-8W9"/>
                             <constraint firstItem="TUf-AM-4RE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="YKM-1K-fkK"/>
+                            <constraint firstItem="4hy-Vs-uHF" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="abo-Ct-aO9"/>
+                            <constraint firstItem="808-Ln-2y0" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="bgt-ps-nzC"/>
                             <constraint firstItem="hU6-eg-63b" firstAttribute="top" secondItem="TUf-AM-4RE" secondAttribute="bottom" constant="22" id="dCf-bE-X8q"/>
                             <constraint firstItem="hU6-eg-63b" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="fIw-tc-m8t"/>
+                            <constraint firstItem="rmk-Su-5pi" firstAttribute="top" secondItem="PxG-y5-xW9" secondAttribute="bottom" constant="48" id="fS9-J8-wl5"/>
                             <constraint firstItem="6LJ-4H-Otc" firstAttribute="top" secondItem="h7C-5x-5nA" secondAttribute="bottom" constant="48" id="h0S-zE-OwM"/>
+                            <constraint firstItem="808-Ln-2y0" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="jMO-2P-197"/>
+                            <constraint firstItem="dkt-uH-ZFg" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="jSv-Ig-7q7"/>
                             <constraint firstItem="PxG-y5-xW9" firstAttribute="top" secondItem="6LJ-4H-Otc" secondAttribute="bottom" constant="10" id="nhD-5h-qVl"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dkt-uH-ZFg" secondAttribute="trailing" constant="20" id="oVD-gY-Y3I"/>
+                            <constraint firstItem="dkt-uH-ZFg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="ttc-SA-d9o"/>
                             <constraint firstItem="h7C-5x-5nA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="u43-hZ-qzl"/>
                             <constraint firstItem="hU6-eg-63b" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="urS-EP-KzM"/>
+                            <constraint firstItem="808-Ln-2y0" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="y7q-mG-KMN"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="gsY-17-ceh"/>
                     <connections>
+                        <outlet property="numberOfTasksLabel" destination="zu4-xc-MxD" id="deb-34-Ysd"/>
                         <outlet property="rangeFromLabel" destination="Zwa-Gd-OoH" id="6UZ-Sl-UwQ"/>
                         <outlet property="rangeToLabel" destination="gVk-Gd-bUs" id="Cxm-9b-97m"/>
                     </connections>
@@ -202,11 +254,17 @@
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
