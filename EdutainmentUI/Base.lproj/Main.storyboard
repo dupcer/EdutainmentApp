@@ -177,7 +177,9 @@
                             <constraint firstItem="808-Ln-2y0" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="y7q-mG-KMN"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="gsY-17-ceh"/>
+                    <navigationItem key="navigationItem" id="gsY-17-ceh">
+                        <barButtonItem key="backBarButtonItem" title="Exit" id="YaW-JW-vyn"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="numberOfTasksLabel" destination="zu4-xc-MxD" id="deb-34-Ysd"/>
                         <outlet property="rangeFromLabel" destination="Zwa-Gd-OoH" id="6UZ-Sl-UwQ"/>

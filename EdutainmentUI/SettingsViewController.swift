@@ -14,7 +14,8 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let errorMessageController = ErrorMessagesController()
+        
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
