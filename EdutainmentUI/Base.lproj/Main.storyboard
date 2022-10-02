@@ -139,7 +139,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="808-Ln-2y0">
-                                <rect key="frame" x="129" y="818" width="156" height="44"/>
+                                <rect key="frame" x="20" y="818" width="374" height="44"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Start" titleAlignment="center">
                                     <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle1"/>
@@ -153,7 +153,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <color key="tintColor" systemColor="systemOrangeColor"/>
                         <constraints>
-                            <constraint firstItem="808-Ln-2y0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="129" id="0fk-YM-71M"/>
+                            <constraint firstItem="808-Ln-2y0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="0zn-Fl-mKk"/>
                             <constraint firstItem="PxG-y5-xW9" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="2b5-GK-69G"/>
                             <constraint firstItem="6LJ-4H-Otc" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="5jH-6e-tT5"/>
                             <constraint firstItem="dkt-uH-ZFg" firstAttribute="top" secondItem="rmk-Su-5pi" secondAttribute="bottom" constant="8" symbolic="YES" id="84A-sf-DJz"/>

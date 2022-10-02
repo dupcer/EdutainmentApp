@@ -80,15 +80,9 @@ class SettingsViewController: UIViewController {
     
     
     // MARK: Number of tasks Setting
-    var numberOfTasks: UInt {
-        get {
-            let n = flow.getAmountOfAllIterations()
-            numberOfTasksLabel.text = "\(n)"
-            return n
-        } set {
-            let n = UInt(newValue)
-            flow.setAmountOfAllIterations(n)
-            numberOfTasksLabel.text = "\(n)"
+    var numberOfTasks: UInt = 50 {
+        didSet {
+            numberOfTasksLabel.text = "\(numberOfTasks)"
         }
     }
     
@@ -103,6 +97,7 @@ class SettingsViewController: UIViewController {
     @IBAction func startBtn() {
         print(operation, rangeFrom, rangeTo, numberOfTasks)
         do {
+            flow.setAmountOfAllIterations(numberOfTasks)
             try flow.setGameRange(min: rangeFrom, max: rangeTo)
             flow.currentStatus = .started
             flow.start()
