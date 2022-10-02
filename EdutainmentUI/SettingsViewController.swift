@@ -10,11 +10,17 @@ import UIKit
 class SettingsViewController: UIViewController {
     let flow = Flow()
     
+    let errorMessageController = ErrorMessagesController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+//        let errorMessageController = ErrorMessagesController()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        addChild(errorMessageController)
+    }
+
     
     // MARK: Operation Task Setting
     var operation: Game.OperationType {
@@ -59,13 +65,18 @@ class SettingsViewController: UIViewController {
     
     @IBOutlet weak var rangeFromLabel: UILabel!
     @IBAction func rangeFromStepper(_ sender: UIStepper) {
+        rangeToStepperOutlet.minimumValue = sender.value + 2
         rangeFrom = UInt(sender.value)
     }
+    @IBOutlet weak var rangeFromStepperOutlet: UIStepper!
+    
     
     @IBOutlet weak var rangeToLabel: UILabel!
     @IBAction func rangeToStepper(_ sender: UIStepper) {
+        rangeFromStepperOutlet.maximumValue = sender.value - 2
         rangeTo = UInt(sender.value)
     }
+    @IBOutlet weak var rangeToStepperOutlet: UIStepper!
     
     
     // MARK: Number of tasks Setting
@@ -88,19 +99,18 @@ class SettingsViewController: UIViewController {
     }
     
     
-    // MARK: Number of tasks Setting
-    
+    // MARK: Start Button
     @IBAction func startBtn() {
+        print(operation, rangeFrom, rangeTo, numberOfTasks)
         do {
             try flow.setGameRange(min: rangeFrom, max: rangeTo)
             flow.currentStatus = .started
             flow.start()
         } catch let error as Flow.GameError {
-            let errorMessageController = ErrorMessagesController()
-            errorMessageController.gameErrorMsg(for: error)
+            self.errorMessageController.gameErrorMsg(for: error)
             
         } catch {
-            
+            NSLog("unknown error")
         }
         
         

@@ -68,7 +68,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2" minimumValue="2" maximumValue="20" translatesAutoresizingMaskIntoConstraints="NO" id="t8u-aI-Uzp">
+                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2" minimumValue="2" maximumValue="4" translatesAutoresizingMaskIntoConstraints="NO" id="t8u-aI-Uzp">
                                                 <rect key="frame" x="0.0" y="57.5" width="94" height="32"/>
                                                 <connections>
                                                     <action selector="rangeFromStepper:" destination="BYZ-38-t0r" eventType="valueChanged" id="DT0-uD-YNw"/>
@@ -181,7 +181,9 @@
                     <connections>
                         <outlet property="numberOfTasksLabel" destination="zu4-xc-MxD" id="deb-34-Ysd"/>
                         <outlet property="rangeFromLabel" destination="Zwa-Gd-OoH" id="6UZ-Sl-UwQ"/>
+                        <outlet property="rangeFromStepperOutlet" destination="t8u-aI-Uzp" id="YOQ-at-TwN"/>
                         <outlet property="rangeToLabel" destination="gVk-Gd-bUs" id="Cxm-9b-97m"/>
+                        <outlet property="rangeToStepperOutlet" destination="aNF-jJ-ldg" id="CBl-Ck-vvu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

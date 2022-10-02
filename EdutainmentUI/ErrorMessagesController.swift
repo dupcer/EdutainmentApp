@@ -23,7 +23,7 @@ class ErrorMessagesController: UIAlertController {
     private func alert(title: String, message: String, btnText: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: NSLocalizedString(btnText, comment: "\(btnText) is Default action"), style: .default, handler: { _ in
-            NSLog("The \"OK\" alert occured.")
+            NSLog("Alert occured. Title: \(title), and msg: \(message)")
         }))
         self.present(alert, animated: true, completion: nil)
     }
