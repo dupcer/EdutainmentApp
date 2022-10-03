@@ -22,6 +22,13 @@ class SettingsViewController: UIViewController {
         addChild(errorMessageController)
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "StartGame" {
+            if let vc = segue.destination as? GameViewController {
+                vc.flow = flow
+            }
+        }
+    }
     
     // MARK: Operation Task Setting
     var operation: Game.OperationType {
