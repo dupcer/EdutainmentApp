@@ -145,8 +145,7 @@
                                     <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle1"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="startBtn" destination="BYZ-38-t0r" eventType="touchUpInside" id="yrF-ER-W60"/>
-                                    <segue destination="U2L-Zf-d1D" kind="showDetail" identifier="StartGame" id="eTB-et-de4"/>
+                                    <action selector="startButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MT5-eL-BOq"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -320,9 +319,6 @@
             <point key="canvasLocation" x="-262" y="98"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="eTB-et-de4"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>

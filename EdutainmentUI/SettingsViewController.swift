@@ -26,6 +26,7 @@ class SettingsViewController: UIViewController {
         if segue.identifier == "StartGame" {
             if let vc = segue.destination as? GameViewController {
                 vc.flow = flow
+                lastSeguedToGaveVewController = vc
             }
         }
     }
@@ -102,20 +103,43 @@ class SettingsViewController: UIViewController {
     
     
     // MARK: Start Button
-    @IBAction func startBtn() {
+    @IBAction func startButton(_ sender: UIButton) {
         print(operation, rangeFrom, rangeTo, numberOfTasks)
         do {
             flow.setAmountOfAllIterations(numberOfTasks)
             try flow.setGameRange(min: rangeFrom, max: rangeTo)
             flow.currentStatus = .started
             flow.start()
+            sendFlowToGameVC(flow, sender: sender)
         } catch let error as Flow.GameError {
             self.errorMessageController.gameErrorMsg(for: error)
-            
         } catch {
             NSLog("unknown error")
         }
-        
-        
     }
+    
+    static var delegate: GameVCDelegate?
+    
+    private var splitViewGameViewController: GameViewController? {
+        splitViewController?.viewControllers.forEach({print($0 is GameViewController)})
+        return splitViewController?.viewControllers.last as? GameViewController
+    }
+    
+    private var lastSeguedToGaveVewController: GameViewController?
+    
+    private func sendFlowToGameVC(_ newFlow: Flow, sender: Any) {
+        if let splitViewGameVC = SettingsViewController.delegate as? GameViewController { // for iPad
+            splitViewController?.showDetailViewController(splitViewGameVC, sender: sender)
+            splitViewGameVC.flow = flow
+        } else if let splitViewGameVC = lastSeguedToGaveVewController { // for iPhone
+            splitViewGameVC.flow = flow
+            navigationController?.pushViewController(splitViewGameVC, animated: true)
+        } else {
+            performSegue(withIdentifier: "StartGame", sender: sender)
+        }
+    }
+}
+
+protocol GameVCDelegate {
+    func updateFlow(_ newFlow: Flow)
 }

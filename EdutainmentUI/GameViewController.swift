@@ -7,55 +7,41 @@
 
 import UIKit
 
-class GameViewController: UIViewController {
+class GameViewController: UIViewController, GameVCDelegate {
+    func updateFlow(_ newFlow: Flow) {
+        flow = newFlow
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        SettingsViewController.delegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        //        if flow != nil {
-        //            do {
-        //                try task = flow?.getNewTask()
-        //                refreshUI(task: task!)
-        //            } catch let error as Flow.GameError {
-        //                self.errorMessageController.gameErrorMsg(for: error)
-        //            } catch {
-        //                NSLog("")
-        //            }
-        //
-        //        }
+        
     }
     
     let errorMessageController = ErrorMessagesController()
     var flow: Flow? {
         didSet {
-            do {
-                try task = flow?.getNewTask()
-            } catch let error as Flow.GameError {
-                self.errorMessageController.gameErrorMsg(for: error)
-            } catch {
-                NSLog("Error was cought, but not properly handeled")
-            }
+            if flow != nil, flow?.currentStatus == .started {try! task = flow?.getNewTask()}
             refreshUI()
         }
     }
-    var task: Task? {
-        didSet {
-            
-        }
-    }
     
-    @IBOutlet weak var startNewGameLabel: UILabel! {
-        didSet {
-            if flow != nil {
-                startNewGameLabel.isHidden = false
-            } else {
-                startNewGameLabel.isHidden = true
-            }
-        }
-    }
+    var task: Task?
+    
+    @IBOutlet weak var startNewGameLabel: UILabel!
+//    {
+//        didSet {
+//            if flow != nil {
+//                startNewGameLabel.isHidden = false
+//            } else {
+//                startNewGameLabel.isHidden = true
+//            }
+//        }
+//    }
     @IBOutlet weak var varOneLabel: UILabel!
     @IBOutlet weak var operationSignLabel: UILabel!
     @IBOutlet weak var varTwoLabel: UILabel!
@@ -85,9 +71,6 @@ class GameViewController: UIViewController {
             
             // TODO: update buttons
         }
-        
-        
-        
     }
     
 }
