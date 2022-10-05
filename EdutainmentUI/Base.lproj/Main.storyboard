@@ -278,9 +278,9 @@
                             <constraint firstAttribute="trailing" secondItem="04T-KD-yiB" secondAttribute="trailing" id="5pP-6g-jFn"/>
                             <constraint firstItem="0Fl-S3-Cns" firstAttribute="bottom" secondItem="kxV-5m-Mkc" secondAttribute="bottom" constant="30" id="HYe-iS-4ix"/>
                             <constraint firstItem="i41-Gd-nsX" firstAttribute="centerX" secondItem="0Fl-S3-Cns" secondAttribute="centerX" id="QfO-Qq-Mre"/>
-                            <constraint firstItem="04T-KD-yiB" firstAttribute="centerX" secondItem="i41-Gd-nsX" secondAttribute="centerX" id="cad-Pv-xw7"/>
+                            <constraint firstItem="04T-KD-yiB" firstAttribute="centerX" secondItem="r9x-0i-h5F" secondAttribute="centerX" id="cad-Pv-xw7"/>
                             <constraint firstItem="kxV-5m-Mkc" firstAttribute="centerX" secondItem="0Fl-S3-Cns" secondAttribute="centerX" id="gor-M8-og0"/>
-                            <constraint firstItem="04T-KD-yiB" firstAttribute="bottom" secondItem="0Fl-S3-Cns" secondAttribute="bottom" id="hm0-wJ-wzw"/>
+                            <constraint firstItem="04T-KD-yiB" firstAttribute="bottom" secondItem="r9x-0i-h5F" secondAttribute="bottom" id="hm0-wJ-wzw"/>
                             <constraint firstItem="i41-Gd-nsX" firstAttribute="centerY" secondItem="0Fl-S3-Cns" secondAttribute="centerY" id="spV-OV-0NJ"/>
                             <constraint firstItem="04T-KD-yiB" firstAttribute="centerY" secondItem="r9x-0i-h5F" secondAttribute="centerY" id="xWE-5S-2dk"/>
                         </constraints>
