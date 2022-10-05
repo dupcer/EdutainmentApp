@@ -7,10 +7,43 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController {
+class SettingsViewController: UIViewController, UISplitViewControllerDelegate {
     let flow = Flow()
     
     let errorMessageController = ErrorMessagesController()
+    
+    
+    override func awakeFromNib() {
+        splitViewController?.delegate = self
+        
+    }
+    
+//    func splitViewController(
+//        _ splitViewController: UISplitViewController,
+//        show vc: UIViewController,
+//        sender: Any?
+//    ) -> Bool {
+//        print("___________ \n _________")
+//        print(vc is GameViewController)
+//        print("___________ \n _________")
+//        return false
+//    }
+    
+    func splitViewController(
+                 _ splitViewController: UISplitViewController,
+                 collapseSecondary secondaryViewController: UIViewController,
+                 onto primaryViewController: UIViewController) -> Bool {
+         if let gameVC = secondaryViewController as? GameViewController {
+             if gameVC.flow == nil {
+                 return true
+             }
+         }
+            return false
+    }
+
+//    func splitViewController(_ svc: UISplitViewController, topColumnForCollapsingToProposedTopColumn proposedTopColumn: UISplitViewController.Column) -> UISplitViewController.Column {
+//        .primary
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +59,7 @@ class SettingsViewController: UIViewController {
         if segue.identifier == "StartGame" {
             if let vc = segue.destination as? GameViewController {
                 vc.flow = flow
-                lastSeguedToGaveVewController = vc
+                lastSeguedToGameVewController = vc
             }
         }
     }
@@ -110,7 +143,8 @@ class SettingsViewController: UIViewController {
             try flow.setGameRange(min: rangeFrom, max: rangeTo)
             flow.currentStatus = .started
             flow.start()
-            sendFlowToGameVC(flow, sender: sender)
+            
+//            gameVC.flow = flow
         } catch let error as Flow.GameError {
             self.errorMessageController.gameErrorMsg(for: error)
         } catch {
@@ -125,18 +159,20 @@ class SettingsViewController: UIViewController {
         return splitViewController?.viewControllers.last as? GameViewController
     }
     
-    private var lastSeguedToGaveVewController: GameViewController?
+    private var lastSeguedToGameVewController: GameViewController?
     
-    private func sendFlowToGameVC(_ newFlow: Flow, sender: Any) {
+    private func sendFlowToGameVC(sender: Any) {
         if let splitViewGameVC = SettingsViewController.delegate as? GameViewController { // for iPad
             splitViewController?.showDetailViewController(splitViewGameVC, sender: sender)
-            splitViewGameVC.flow = flow
-        } else if let splitViewGameVC = lastSeguedToGaveVewController { // for iPhone
-            splitViewGameVC.flow = flow
-            navigationController?.pushViewController(splitViewGameVC, animated: true)
-        } else {
+            splitViewGameVC.updateFlow(flow)
+        } else if let splitViewGameVC = lastSeguedToGameVewController { // for iPhone
             performSegue(withIdentifier: "StartGame", sender: sender)
+            splitViewGameVC.updateFlow(flow)
+//            navigationController?.pushViewController(splitViewGameVC, animated: true)
         }
+//        else {
+//            performSegue(withIdentifier: "StartGame", sender: sender)
+//        }
     }
 }
 

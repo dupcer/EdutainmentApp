@@ -3,4 +3,162 @@
    uuid = "835A7743-D3BC-4F94-BA3C-A95B6B9B372A"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "29BE3585-47E5-441C-9304-8435B1FE473F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EdutainmentUI/GameViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
+            landmarkName = "updateFlow(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F3FBC7AB-EBA7-4A18-B008-E3B2DC4F4485"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EdutainmentUI/GameViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "flow"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "F3FBC7AB-EBA7-4A18-B008-E3B2DC4F4485 - 4c2b9bce4c029198"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EdutainmentUI.GameViewController.flow.getter : Swift.Optional&lt;EdutainmentUI.Flow&gt;"
+                  moduleName = "EdutainmentUI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/damie/Developer/Edutainment/EdutainmentUI/EdutainmentUI/GameViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "88">
+               </Location>
+               <Location
+                  uuid = "F3FBC7AB-EBA7-4A18-B008-E3B2DC4F4485 - a8f52ae434fc9984"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EdutainmentUI.GameViewController.flow.setter : Swift.Optional&lt;EdutainmentUI.Flow&gt;"
+                  moduleName = "EdutainmentUI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/damie/Developer/Edutainment/EdutainmentUI/EdutainmentUI/GameViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "112">
+               </Location>
+               <Location
+                  uuid = "F3FBC7AB-EBA7-4A18-B008-E3B2DC4F4485 - 67f9af9281957f95"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EdutainmentUI.GameViewController.flow.modify : Swift.Optional&lt;EdutainmentUI.Flow&gt;"
+                  moduleName = "EdutainmentUI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/damie/Developer/Edutainment/EdutainmentUI/EdutainmentUI/GameViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "F3FBC7AB-EBA7-4A18-B008-E3B2DC4F4485 - 604dc99c579c6d1b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EdutainmentUI.GameViewController.flow.modify : Swift.Optional&lt;EdutainmentUI.Flow&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "EdutainmentUI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/damie/Developer/Edutainment/EdutainmentUI/EdutainmentUI/GameViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  uuid = "F3FBC7AB-EBA7-4A18-B008-E3B2DC4F4485 - d85241af5c834ca2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EdutainmentUI.GameViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; EdutainmentUI.GameViewController"
+                  moduleName = "EdutainmentUI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/damie/Developer/Edutainment/EdutainmentUI/EdutainmentUI/GameViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "204">
+               </Location>
+               <Location
+                  uuid = "F3FBC7AB-EBA7-4A18-B008-E3B2DC4F4485 - ba75b9d84aa55480"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EdutainmentUI.GameViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;EdutainmentUI.GameViewController&gt;"
+                  moduleName = "EdutainmentUI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/damie/Developer/Edutainment/EdutainmentUI/EdutainmentUI/GameViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "180">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3C2659A8-842C-4752-AE52-A5112325B33D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EdutainmentUI/SettingsViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "167"
+            endingLineNumber = "167"
+            landmarkName = "sendFlowToGameVC(sender:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2DD30D15-8576-4C28-BDDC-E2068A29C6B3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EdutainmentUI/SettingsViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "170"
+            endingLineNumber = "170"
+            landmarkName = "sendFlowToGameVC(sender:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

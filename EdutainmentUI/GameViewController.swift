@@ -19,7 +19,9 @@ class GameViewController: UIViewController, GameVCDelegate {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
+        if flow != nil {
+            updateFlow(flow!)
+        }
     }
     
     let errorMessageController = ErrorMessagesController()
