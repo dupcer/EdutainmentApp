@@ -141,14 +141,13 @@ class SettingsViewController: UIViewController, UISplitViewControllerDelegate {
         do {
             flow.setAmountOfAllIterations(numberOfTasks)
             try flow.setGameRange(min: rangeFrom, max: rangeTo)
-            flow.currentStatus = .started
             flow.start()
             
 //            gameVC.flow = flow
         } catch let error as Flow.GameError {
             self.errorMessageController.gameErrorMsg(for: error)
         } catch {
-            NSLog("unknown error")
+            NSLog("THE ERROR OCURED WHILE STARTING THE GAME")
         }
     }
     

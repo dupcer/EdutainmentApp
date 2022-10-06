@@ -211,7 +211,7 @@
             <objects>
                 <viewController id="U2L-Zf-d1D" customClass="GameViewController" customModule="EdutainmentUI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="r9x-0i-h5F">
-                        <rect key="frame" x="0.0" y="0.0" width="990.5" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="990" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="78" translatesAutoresizingMaskIntoConstraints="NO" id="i41-Gd-nsX">
@@ -247,23 +247,33 @@
                                         <rect key="frame" x="0.0" y="0.0" width="176.5" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="tinted" title="Option1"/>
+                                        <connections>
+                                            <action selector="option1Button:" destination="U2L-Zf-d1D" eventType="touchUpInside" id="cHd-cy-cb7"/>
+                                            <action selector="optionButtonAction:" destination="U2L-Zf-d1D" eventType="touchUpInside" id="wEM-QJ-bLe"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d9i-wZ-oiA">
                                         <rect key="frame" x="0.0" y="59" width="176.5" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="tinted" title="Option2"/>
+                                        <connections>
+                                            <action selector="optionButtonAction:" destination="U2L-Zf-d1D" eventType="touchUpInside" id="fce-v7-x2H"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="167-tQ-6Mp">
                                         <rect key="frame" x="0.0" y="118" width="176.5" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="tinted" title="Option3"/>
+                                        <connections>
+                                            <action selector="optionButtonAction:" destination="U2L-Zf-d1D" eventType="touchUpInside" id="Rwa-3N-ufx"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="176.5" id="kVS-M6-huO"/>
                                 </constraints>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="👈 Start New Game" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="04T-KD-yiB">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="👈 Start New Game" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="04T-KD-yiB">
                                 <rect key="frame" x="0.0" y="0.0" width="990.5" height="1024"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
@@ -290,7 +300,7 @@
                     <connections>
                         <outlet property="operationSignLabel" destination="VYo-sG-Elk" id="hL0-pl-xhI"/>
                         <outlet property="option1Label" destination="C7I-ch-GHe" id="DWD-kl-L3N"/>
-                        <outlet property="option2Label" destination="d9i-wZ-oiA" id="eGJ-73-XBo"/>
+                        <outlet property="option2Label" destination="d9i-wZ-oiA" id="ajq-xp-UOW"/>
                         <outlet property="option3Label" destination="167-tQ-6Mp" id="vUC-us-2rM"/>
                         <outlet property="startNewGameLabel" destination="04T-KD-yiB" id="KHH-qI-n0L"/>
                         <outlet property="varOneLabel" destination="uBh-tS-BY4" id="KSL-xR-58O"/>

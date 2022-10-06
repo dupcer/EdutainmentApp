@@ -15,7 +15,8 @@ class Flow {
     enum GameError: Error {
         case wrongRange,
              currentStatusIsNotStarted,
-             noNewTaskAsAllIterationsComplete
+             noNewTaskAsAllIterationsComplete,
+             givenAnswerIsInvalid
     }
     
     var currentStatus = Status.setting
@@ -75,18 +76,23 @@ class Flow {
 
     /// RESULT interactions 👇
     private let result = Result()
-    private var currentTaskCorrectAnswer: Int? = nil
+    private var currentTaskCorrectAnswer: Float? = nil
     
-    func answer(_ answer: Int) {
-        game.currentIteration += 1
+    func answer(_ answer: Float) throws -> Bool {
+        if answer <= 0 { throw GameError.givenAnswerIsInvalid }
         
+        game.currentIteration += 1
+
         if game.allIterations == game.currentIteration {
             currentStatus = .finished
         }
-        
-        if answer == currentTaskCorrectAnswer {
+
+        let isCorrect = answer == currentTaskCorrectAnswer
+        if isCorrect {
             result.score += 1
         }
+        
+        return isCorrect
     }
     
     func getResult() -> [String: UInt] {

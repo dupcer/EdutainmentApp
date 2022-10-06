@@ -17,6 +17,8 @@ class ErrorMessagesController: UIAlertController {
             alert(title: "Error", message: "Oops, the game hasn't been started yet. Please try again", btnText: "OK")
         case .noNewTaskAsAllIterationsComplete:
             alert(title: "Error", message: "Oh, seems like you've done all tasks for now", btnText: "OK")
+        case .givenAnswerIsInvalid:
+            alert(title: "Error", message: "Something went wrong. Please start a new game", btnText: "OK")
         }
     }
 
