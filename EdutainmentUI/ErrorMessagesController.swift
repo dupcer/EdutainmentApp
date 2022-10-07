@@ -20,13 +20,15 @@ class ErrorMessagesController: UIAlertController {
         case .givenAnswerIsInvalid:
             alert(title: "Error", message: "Something went wrong. Please start a new game", btnText: "OK")
         }
+        
     }
 
     private func alert(title: String, message: String, btnText: String) {
+        DispatchQueue.main.async {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: NSLocalizedString(btnText, comment: "\(btnText) is Default action"), style: .default, handler: { _ in
             NSLog("Alert occured. Title: \(title), and msg: \(message)")
         }))
-        self.present(alert, animated: true, completion: nil)
+            self.present(alert, animated: true, completion: nil)}
     }
 }

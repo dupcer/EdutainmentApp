@@ -8,7 +8,7 @@
 import UIKit
 
 class SettingsViewController: UIViewController, UISplitViewControllerDelegate {
-    let flow = Flow()
+    var flow: Flow = Flow()
     
     let errorMessageController = ErrorMessagesController()
     
@@ -17,17 +17,6 @@ class SettingsViewController: UIViewController, UISplitViewControllerDelegate {
         splitViewController?.delegate = self
         
     }
-    
-//    func splitViewController(
-//        _ splitViewController: UISplitViewController,
-//        show vc: UIViewController,
-//        sender: Any?
-//    ) -> Bool {
-//        print("___________ \n _________")
-//        print(vc is GameViewController)
-//        print("___________ \n _________")
-//        return false
-//    }
     
     func splitViewController(
                  _ splitViewController: UISplitViewController,
@@ -139,11 +128,11 @@ class SettingsViewController: UIViewController, UISplitViewControllerDelegate {
     @IBAction func startButton(_ sender: UIButton) {
         print(operation, rangeFrom, rangeTo, numberOfTasks)
         do {
+            flow = Flow()
             flow.setAmountOfAllIterations(numberOfTasks)
             try flow.setGameRange(min: rangeFrom, max: rangeTo)
             flow.start()
             
-//            gameVC.flow = flow
         } catch let error as Flow.GameError {
             self.errorMessageController.gameErrorMsg(for: error)
         } catch {
