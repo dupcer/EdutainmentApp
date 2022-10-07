@@ -88,17 +88,29 @@ class GameViewController: UIViewController, GameVCDelegate {
             option1Label.setTitle(options[0], for: .normal)
             option2Label.setTitle(options[1], for: .normal)
             option3Label.setTitle(options[2], for: .normal)
+            
+            optionButtons.forEach({ $0.isEnabled = true })
         }
     }
     
     private func optionButtonAnimation(isCorrect: Bool, sender: UIButton){
+        let tagTapped = sender.tag
+        optionButtons.forEach({ if $0.tag != tagTapped {$0.isEnabled = false} })
         if isCorrect {
-            sender.tintColor = UIColor.green
+            
+            UIView.animate(withDuration: 1, delay: 1, usingSpringWithDamping: 10, initialSpringVelocity: 25, options: [], animations: {
+                sender.transform = CGAffineTransform(scaleX: 2, y: 2)
+                sender.tintColor = UIColor.green
+            })
         } else {
             sender.tintColor = UIColor.red
         }
-//        let otherButtons = optionButtons.filter({$0.tintColor != .red || $0.tintColor != .green})
-//        optionButtons.forEach({$0.isEnabled = false})
+        
+            
+          
+
+
+        
     }
     
     private func getOptionsAsString(for task: Task) -> [String] {

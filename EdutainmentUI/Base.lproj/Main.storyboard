@@ -211,7 +211,7 @@
             <objects>
                 <viewController id="U2L-Zf-d1D" customClass="GameViewController" customModule="EdutainmentUI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="r9x-0i-h5F">
-                        <rect key="frame" x="0.0" y="0.0" width="990" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="990.5" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="78" translatesAutoresizingMaskIntoConstraints="NO" id="i41-Gd-nsX">
@@ -243,29 +243,28 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="kxV-5m-Mkc">
                                 <rect key="frame" x="407" y="845" width="176.5" height="149"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C7I-ch-GHe">
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C7I-ch-GHe">
                                         <rect key="frame" x="0.0" y="0.0" width="176.5" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="tinted" title="Option1"/>
                                         <connections>
-                                            <action selector="option1Button:" destination="U2L-Zf-d1D" eventType="touchUpInside" id="cHd-cy-cb7"/>
-                                            <action selector="optionButtonAction:" destination="U2L-Zf-d1D" eventType="touchUpInside" id="wEM-QJ-bLe"/>
+                                            <action selector="optionButtonAction:" destination="U2L-Zf-d1D" eventType="touchUpInside" id="b7P-gv-HnE"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d9i-wZ-oiA">
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d9i-wZ-oiA">
                                         <rect key="frame" x="0.0" y="59" width="176.5" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="tinted" title="Option2"/>
                                         <connections>
-                                            <action selector="optionButtonAction:" destination="U2L-Zf-d1D" eventType="touchUpInside" id="fce-v7-x2H"/>
+                                            <action selector="optionButtonAction:" destination="U2L-Zf-d1D" eventType="touchUpInside" id="NlM-Q6-sA1"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="167-tQ-6Mp">
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="167-tQ-6Mp">
                                         <rect key="frame" x="0.0" y="118" width="176.5" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="tinted" title="Option3"/>
                                         <connections>
-                                            <action selector="optionButtonAction:" destination="U2L-Zf-d1D" eventType="touchUpInside" id="Rwa-3N-ufx"/>
+                                            <action selector="optionButtonAction:" destination="U2L-Zf-d1D" eventType="touchUpInside" id="p1B-ZU-FrF"/>
                                         </connections>
                                     </button>
                                 </subviews>
