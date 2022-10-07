@@ -245,7 +245,8 @@
                                 <subviews>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C7I-ch-GHe">
                                         <rect key="frame" x="0.0" y="0.0" width="176.5" height="31"/>
-                                        <state key="normal" title="Button"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Option1"/>
                                         <buttonConfiguration key="configuration" style="tinted" title="Option1"/>
                                         <connections>
                                             <action selector="optionButtonAction:" destination="U2L-Zf-d1D" eventType="touchUpInside" id="b7P-gv-HnE"/>
@@ -253,7 +254,8 @@
                                     </button>
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d9i-wZ-oiA">
                                         <rect key="frame" x="0.0" y="59" width="176.5" height="31"/>
-                                        <state key="normal" title="Button"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Option2"/>
                                         <buttonConfiguration key="configuration" style="tinted" title="Option2"/>
                                         <connections>
                                             <action selector="optionButtonAction:" destination="U2L-Zf-d1D" eventType="touchUpInside" id="NlM-Q6-sA1"/>
@@ -261,7 +263,8 @@
                                     </button>
                                     <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="167-tQ-6Mp">
                                         <rect key="frame" x="0.0" y="118" width="176.5" height="31"/>
-                                        <state key="normal" title="Button"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Option3"/>
                                         <buttonConfiguration key="configuration" style="tinted" title="Option3"/>
                                         <connections>
                                             <action selector="optionButtonAction:" destination="U2L-Zf-d1D" eventType="touchUpInside" id="p1B-ZU-FrF"/>

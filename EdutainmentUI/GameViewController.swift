@@ -37,7 +37,7 @@ class GameViewController: UIViewController, GameVCDelegate {
     var task: Task?
     
     @IBOutlet weak var startNewGameLabel: UILabel!
-
+    
     @IBOutlet weak var varOneLabel: UILabel!
     @IBOutlet weak var operationSignLabel: UILabel!
     @IBOutlet weak var varTwoLabel: UILabel!
@@ -59,6 +59,7 @@ class GameViewController: UIViewController, GameVCDelegate {
             NSLog("AN ERROR OCCURED WHILE SUBMITTING THE ANSWER TO TASK")
         }
         optionButtonAnimation(isCorrect: isCorrect, sender: sender)
+        
     }
     
     
@@ -96,20 +97,31 @@ class GameViewController: UIViewController, GameVCDelegate {
     private func optionButtonAnimation(isCorrect: Bool, sender: UIButton){
         let tagTapped = sender.tag
         optionButtons.forEach({ if $0.tag != tagTapped {$0.isEnabled = false} })
-        if isCorrect {
-            
-            UIView.animate(withDuration: 1, delay: 1, usingSpringWithDamping: 10, initialSpringVelocity: 25, options: [], animations: {
-                sender.transform = CGAffineTransform(scaleX: 2, y: 2)
-                sender.tintColor = UIColor.green
-            })
-        } else {
-            sender.tintColor = UIColor.red
-        }
         
-            
-          
-
-
+        UIView.animate(withDuration: 0.75, delay: 0.2, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: [], animations: {
+            sender.transform = CGAffineTransform(scaleX: 0.85, y: 0.85)
+            sender.setTitleColor(.purple, for: .normal)
+        }, completion: {_ in
+            if isCorrect {
+                UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 10, initialSpringVelocity: 25, options: [], animations: {
+                    sender.transform = CGAffineTransform(scaleX: 2, y: 2)
+                    sender.tintColor = UIColor.green
+                }) }
+            else {
+                sender.transform = CGAffineTransform(scaleX: 1, y: 1)
+                sender.tintColor = UIColor.red
+                
+                let animation = CABasicAnimation(keyPath: "position")
+                animation.duration = 0.07
+                animation.repeatCount = 3
+                animation.autoreverses = true
+                animation.fromValue = NSValue(cgPoint: CGPoint(x: sender.center.x - 12, y: sender.center.y))
+                animation.toValue = NSValue(cgPoint: CGPoint(x: sender.center.x + 12, y: sender.center.y))
+                
+                sender.layer.add(animation, forKey: "position")
+            }
+        }
+        )
         
     }
     
