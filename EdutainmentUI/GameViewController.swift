@@ -25,7 +25,6 @@ class GameViewController: UIViewController, GameVCDelegate {
             updateFlow(flow!)
         }
         addChild(errorMessageController)
-//        initialState = option1Label
     }
     
 //    var initialState: UIButton? = nil
@@ -161,13 +160,9 @@ class GameViewController: UIViewController, GameVCDelegate {
         optionButtons.forEach( {
             $0.isEnabled = true
             $0.transform = CGAffineTransform(a: 1.0, b: 0.0, c: 0.0, d: 1.0, tx: 0.0, ty: 0.0)
-            $0.tintColor = .purple
-            $0.setTitleColor(.purple, for: .normal)
+            $0.tintColor = UIColor.systemPurple
+            $0.setTitleColor(UIColor.systemPurple, for: .normal)
         })
-//        option1Label.transform = CGAffineTransform(a: 1.0, b: 0.0, c: 0.0, d: 1.0, tx: 0.0, ty: 0.0)
-//        option2Label.isEnabled = true
-//        option3Label.tintColor = .purple
-//        option3Label.setTitleColor(.purple, for: .normal)
     }
 }
 
