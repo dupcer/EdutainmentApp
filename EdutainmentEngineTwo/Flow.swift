@@ -79,7 +79,7 @@ class Flow {
     private var currentTaskCorrectAnswer: Float? = nil
     
     func answer(_ answer: Float) throws -> Bool {
-        if answer <= 0 { throw GameError.givenAnswerIsInvalid }
+        if answer < 0 { throw GameError.givenAnswerIsInvalid }
         
         game.currentIteration += 1
 

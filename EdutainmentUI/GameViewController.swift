@@ -21,22 +21,31 @@ class GameViewController: UIViewController, GameVCDelegate {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if flow != nil {
-            updateFlow(flow!)
+        if isFlowNil {
+            startNewGameLabel.isHidden = false
+        } else {
+            startNewGameLabel.isHidden = true
+            triggerUIRefresh.toggle()
         }
         addChild(errorMessageController)
     }
     
-//    var initialState: UIButton? = nil
+    //    var initialState: UIButton? = nil
     
     let errorMessageController = ErrorMessagesController()
-    var flow: Flow? {
-        didSet {
-            if flow != nil, flow?.currentStatus == .started {
-                triggerUIrefresh.toggle()
-            }
+    private var flow: Flow?
+    var isFlowNil: Bool {
+        get {
+            (flow == nil)
         }
     }
+//    {
+//        didSet {
+//            if flow != nil, flow?.currentStatus == .started {
+//                triggerUIRefresh.toggle()
+//            }
+//        }
+//    }
     
     var task: Task?
     
@@ -69,43 +78,40 @@ class GameViewController: UIViewController, GameVCDelegate {
     }
     
     
-    private var triggerUIrefresh: Bool = true {
+    private var triggerUIRefresh: Bool = true {
         willSet {
             loadViewIfNeeded()
-
-            if flow == nil {
-                startNewGameLabel.isHidden = false
-            } else {
-                do {
-                    try task = flow?.getNewTask()
-                } catch let error as Flow.GameError {
-                    self.errorMessageController.gameErrorMsg(for: error)
-                } catch {
-                    NSLog("AN ERROR OCCURED REFRESHING AND GETTING A NEW TASK")
-                }
-                
-                guard let currentTask = task else {
-                    return
-                }
-                startNewGameLabel.isHidden = true
-                
-                varOneLabel.text = String(currentTask.varOne)
-                varTwoLabel.text = String(currentTask.varTwo)
-                
-                switch currentTask.operation {
-                case .addition: operationSignLabel.text = "+"
-                case .subtraction: operationSignLabel.text = "-"
-                case .division: operationSignLabel.text = "÷"
-                case .multiplication: operationSignLabel.text = "×"
-                default: operationSignLabel.text = "+"
-                }
-                
-                let options = getOptionsAsString(for: currentTask)
-                option1Label.setTitle(options[0], for: .normal)
-                option2Label.setTitle(options[1], for: .normal)
-                option3Label.setTitle(options[2], for: .normal)
-                
+            
+            do {
+                try task = flow?.getNewTask()
+            } catch let error as Flow.GameError {
+                self.errorMessageController.gameErrorMsg(for: error)
+            } catch {
+                NSLog("AN ERROR OCCURED REFRESHING AND GETTING A NEW TASK")
             }
+            
+            guard let currentTask = task else {
+                return
+            }
+            startNewGameLabel.isHidden = true
+            
+            varOneLabel.text = String(currentTask.varOne)
+            varTwoLabel.text = String(currentTask.varTwo)
+            
+            switch currentTask.operation {
+            case .addition: operationSignLabel.text = "+"
+            case .subtraction: operationSignLabel.text = "-"
+            case .division: operationSignLabel.text = "÷"
+            case .multiplication: operationSignLabel.text = "×"
+            default: operationSignLabel.text = "+"
+            }
+            
+            let options = getOptionsAsString(for: currentTask)
+            option1Label.setTitle(options[0], for: .normal)
+            option2Label.setTitle(options[1], for: .normal)
+            option3Label.setTitle(options[2], for: .normal)
+            
+            
         }
     }
     
@@ -143,7 +149,7 @@ class GameViewController: UIViewController, GameVCDelegate {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             self.setButtonsToInitialState(initialState)
-            self.triggerUIrefresh.toggle()
+            self.triggerUIRefresh.toggle()
         }
         
     }

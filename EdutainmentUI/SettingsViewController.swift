@@ -19,20 +19,20 @@ class SettingsViewController: UIViewController, UISplitViewControllerDelegate {
     }
     
     func splitViewController(
-                 _ splitViewController: UISplitViewController,
-                 collapseSecondary secondaryViewController: UIViewController,
-                 onto primaryViewController: UIViewController) -> Bool {
-         if let gameVC = secondaryViewController as? GameViewController {
-             if gameVC.flow == nil {
-                 return true
-             }
-         }
+        _ splitViewController: UISplitViewController,
+        collapseSecondary secondaryViewController: UIViewController,
+        onto primaryViewController: UIViewController) -> Bool {
+            if let gameVC = secondaryViewController as? GameViewController {
+                if gameVC.isFlowNil {
+                    return true
+                }
+            }
             return false
-    }
-
-//    func splitViewController(_ svc: UISplitViewController, topColumnForCollapsingToProposedTopColumn proposedTopColumn: UISplitViewController.Column) -> UISplitViewController.Column {
-//        .primary
-//    }
+        }
+    
+    //    func splitViewController(_ svc: UISplitViewController, topColumnForCollapsingToProposedTopColumn proposedTopColumn: UISplitViewController.Column) -> UISplitViewController.Column {
+    //        .primary
+    //    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,24 +43,19 @@ class SettingsViewController: UIViewController, UISplitViewControllerDelegate {
     override func viewDidAppear(_ animated: Bool) {
         addChild(errorMessageController)
     }
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "StartGame" {
             if let vc = segue.destination as? GameViewController {
-                vc.flow = flow
+                prepareFlow()
+                vc.updateFlow(flow)
                 lastSeguedToGameVewController = vc
             }
         }
     }
     
     // MARK: Operation Task Setting
-    var operation: Game.OperationType {
-        get {
-            flow.getOperationType()
-        } set {
-            flow.setOperationType(newValue)
-        }
-    }
+    var operation: Game.OperationType = .addition
     
     @IBAction func operationSegmentedControl(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
@@ -126,13 +121,17 @@ class SettingsViewController: UIViewController, UISplitViewControllerDelegate {
     
     // MARK: Start Button
     @IBAction func startButton(_ sender: UIButton) {
+//        prepareFlow()
+    }
+    
+    private func prepareFlow() {
         print(operation, rangeFrom, rangeTo, numberOfTasks)
         do {
             flow = Flow()
             flow.setAmountOfAllIterations(numberOfTasks)
+            flow.setOperationType(operation)
             try flow.setGameRange(min: rangeFrom, max: rangeTo)
             flow.start()
-            
         } catch let error as Flow.GameError {
             self.errorMessageController.gameErrorMsg(for: error)
         } catch {
@@ -156,11 +155,11 @@ class SettingsViewController: UIViewController, UISplitViewControllerDelegate {
         } else if let splitViewGameVC = lastSeguedToGameVewController { // for iPhone
             performSegue(withIdentifier: "StartGame", sender: sender)
             splitViewGameVC.updateFlow(flow)
-//            navigationController?.pushViewController(splitViewGameVC, animated: true)
+            //            navigationController?.pushViewController(splitViewGameVC, animated: true)
         }
-//        else {
-//            performSegue(withIdentifier: "StartGame", sender: sender)
-//        }
+        //        else {
+        //            performSegue(withIdentifier: "StartGame", sender: sender)
+        //        }
     }
 }
 
