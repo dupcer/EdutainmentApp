@@ -9,8 +9,12 @@ import Foundation
 
 class Game {
     
-    enum OperationType {
-        case addition, subtraction, multiplication, division, any
+    enum OperationType: String {
+        case addition = "+",
+             subtraction = "-",
+             multiplication = "*",
+             division = "/",
+             any = "any"
     }
     
     var rangeMin: UInt = 2

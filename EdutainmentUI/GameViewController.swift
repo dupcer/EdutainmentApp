@@ -10,6 +10,15 @@ import UIKit
 class GameViewController: UIViewController, GameVCDelegate {
     let decimalPoint = 2
     
+    private var flow: Flow?
+    var isFlowNil: Bool {
+        get {
+            (flow == nil)
+        }
+    }
+    
+    var task: Task?
+    
     func updateFlow(_ newFlow: Flow) {
         flow = newFlow
     }
@@ -20,7 +29,7 @@ class GameViewController: UIViewController, GameVCDelegate {
         SettingsViewController.delegate = self
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         if isFlowNil {
             startNewGameLabel.isHidden = false
         } else {
@@ -33,21 +42,7 @@ class GameViewController: UIViewController, GameVCDelegate {
     //    var initialState: UIButton? = nil
     
     let errorMessageController = ErrorMessagesController()
-    private var flow: Flow?
-    var isFlowNil: Bool {
-        get {
-            (flow == nil)
-        }
-    }
-//    {
-//        didSet {
-//            if flow != nil, flow?.currentStatus == .started {
-//                triggerUIRefresh.toggle()
-//            }
-//        }
-//    }
-    
-    var task: Task?
+
     
     @IBOutlet weak var startNewGameLabel: UILabel!
     
@@ -82,6 +77,15 @@ class GameViewController: UIViewController, GameVCDelegate {
         willSet {
             loadViewIfNeeded()
             
+            let currentResult = flow?.getResult()
+            if let currentIteration = currentResult?["currentIteration"] {
+                if let allIterations = currentResult?["allIterations"] {
+                    if currentIteration >= allIterations {
+                        // open results tabel
+                    }
+                }
+            }
+            
             do {
                 try task = flow?.getNewTask()
             } catch let error as Flow.GameError {
@@ -98,13 +102,7 @@ class GameViewController: UIViewController, GameVCDelegate {
             varOneLabel.text = String(currentTask.varOne)
             varTwoLabel.text = String(currentTask.varTwo)
             
-            switch currentTask.operation {
-            case .addition: operationSignLabel.text = "+"
-            case .subtraction: operationSignLabel.text = "-"
-            case .division: operationSignLabel.text = "÷"
-            case .multiplication: operationSignLabel.text = "×"
-            default: operationSignLabel.text = "+"
-            }
+            operationSignLabel.text = currentTask.operation.rawValue
             
             let options = getOptionsAsString(for: currentTask)
             option1Label.setTitle(options[0], for: .normal)

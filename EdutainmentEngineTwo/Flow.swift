@@ -62,7 +62,7 @@ class Flow {
         try checkNewTaskAllowed()
         
         let newTask = Task(game: game)
-        currentTaskCorrectAnswer = newTask.correctAnswer
+        currentTask = newTask
         return newTask
     }
     
@@ -76,7 +76,7 @@ class Flow {
 
     /// RESULT interactions 👇
     private let result = Result()
-    private var currentTaskCorrectAnswer: Float? = nil
+    private var currentTask: Task? = nil
     
     func answer(_ answer: Float) throws -> Bool {
         if answer < 0 { throw GameError.givenAnswerIsInvalid }
@@ -87,11 +87,11 @@ class Flow {
             currentStatus = .finished
         }
 
-        let isCorrect = answer == currentTaskCorrectAnswer
+        let isCorrect = answer == currentTask?.correctAnswer
         if isCorrect {
             result.score += 1
         }
-        
+        result.addTask(currentTask ?? nil, isCorrect: isCorrect)
         return isCorrect
     }
     
@@ -101,5 +101,15 @@ class Flow {
             "currentIteration": game.currentIteration,
             "score": result.score
         ]
+    }
+    
+    func getResultsTable() -> [ (
+        varOne: Int,
+        varTwo: Int,
+        operation: Game.OperationType,
+        correctAnswer: Float,
+        wasCorrectAnswerGiven: Bool
+    )] {
+        result.getResultsTable()
     }
 }

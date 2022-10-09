@@ -166,3 +166,4 @@ class SettingsViewController: UIViewController, UISplitViewControllerDelegate {
 protocol GameVCDelegate {
     func updateFlow(_ newFlow: Flow)
 }
+

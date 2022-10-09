@@ -16,10 +16,11 @@
 		7738E6BA28E7852000482FEF /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7738E6B928E7852000482FEF /* GameViewController.swift */; };
 		773AD85428E9B89E00EE107B /* ErrorMessagesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773AD85328E9B89E00EE107B /* ErrorMessagesController.swift */; };
 		775D726F28EE2B7400F65821 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775D726E28EE2B7400F65821 /* Helper.swift */; };
-		775D727E28EF6CCD00F65821 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775D727A28EF6CCD00F65821 /* Game.swift */; };
-		775D727F28EF6CCD00F65821 /* Flow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775D727B28EF6CCD00F65821 /* Flow.swift */; };
-		775D728028EF6CCD00F65821 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775D727C28EF6CCD00F65821 /* Result.swift */; };
-		775D728128EF6CCD00F65821 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775D727D28EF6CCD00F65821 /* Task.swift */; };
+		775D728328F208DC00F65821 /* ResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775D728228F208DC00F65821 /* ResultsTableViewController.swift */; };
+		775D728928F21A3600F65821 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775D728528F21A3600F65821 /* Game.swift */; };
+		775D728A28F21A3600F65821 /* Flow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775D728628F21A3600F65821 /* Flow.swift */; };
+		775D728B28F21A3600F65821 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775D728728F21A3600F65821 /* Result.swift */; };
+		775D728C28F21A3600F65821 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775D728828F21A3600F65821 /* Task.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,10 +35,11 @@
 		7738E6B928E7852000482FEF /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		773AD85328E9B89E00EE107B /* ErrorMessagesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessagesController.swift; sourceTree = "<group>"; };
 		775D726E28EE2B7400F65821 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
-		775D727A28EF6CCD00F65821 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
-		775D727B28EF6CCD00F65821 /* Flow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flow.swift; sourceTree = "<group>"; };
-		775D727C28EF6CCD00F65821 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
-		775D727D28EF6CCD00F65821 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		775D728228F208DC00F65821 /* ResultsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsTableViewController.swift; sourceTree = "<group>"; };
+		775D728528F21A3600F65821 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		775D728628F21A3600F65821 /* Flow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flow.swift; sourceTree = "<group>"; };
+		775D728728F21A3600F65821 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		775D728828F21A3600F65821 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +56,7 @@
 		7738E69628E7842700482FEF = {
 			isa = PBXGroup;
 			children = (
-				775D727928EF6CCD00F65821 /* EdutainmentEngineTwo */,
+				775D728428F21A3600F65821 /* EdutainmentEngineTwo */,
 				7738E6A128E7842700482FEF /* EdutainmentUI */,
 				7738E6A028E7842700482FEF /* Products */,
 			);
@@ -74,6 +76,7 @@
 				7738E6A828E7842700482FEF /* Main.storyboard */,
 				7738E6B728E784C300482FEF /* SettingsViewController.swift */,
 				7738E6B928E7852000482FEF /* GameViewController.swift */,
+				775D728228F208DC00F65821 /* ResultsTableViewController.swift */,
 				773AD85328E9B89E00EE107B /* ErrorMessagesController.swift */,
 				7738E6B628E7846A00482FEF /* Supporting Files */,
 				7738E6B028E7842900482FEF /* Info.plist */,
@@ -93,13 +96,13 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		775D727928EF6CCD00F65821 /* EdutainmentEngineTwo */ = {
+		775D728428F21A3600F65821 /* EdutainmentEngineTwo */ = {
 			isa = PBXGroup;
 			children = (
-				775D727A28EF6CCD00F65821 /* Game.swift */,
-				775D727B28EF6CCD00F65821 /* Flow.swift */,
-				775D727C28EF6CCD00F65821 /* Result.swift */,
-				775D727D28EF6CCD00F65821 /* Task.swift */,
+				775D728528F21A3600F65821 /* Game.swift */,
+				775D728628F21A3600F65821 /* Flow.swift */,
+				775D728728F21A3600F65821 /* Result.swift */,
+				775D728828F21A3600F65821 /* Task.swift */,
 			);
 			path = EdutainmentEngineTwo;
 			sourceTree = "<group>";
@@ -175,16 +178,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				775D728028EF6CCD00F65821 /* Result.swift in Sources */,
 				7738E6BA28E7852000482FEF /* GameViewController.swift in Sources */,
-				775D728128EF6CCD00F65821 /* Task.swift in Sources */,
 				7738E6A328E7842700482FEF /* AppDelegate.swift in Sources */,
-				775D727E28EF6CCD00F65821 /* Game.swift in Sources */,
+				775D728328F208DC00F65821 /* ResultsTableViewController.swift in Sources */,
 				773AD85428E9B89E00EE107B /* ErrorMessagesController.swift in Sources */,
+				775D728C28F21A3600F65821 /* Task.swift in Sources */,
 				7738E6A528E7842700482FEF /* SceneDelegate.swift in Sources */,
-				775D727F28EF6CCD00F65821 /* Flow.swift in Sources */,
 				775D726F28EE2B7400F65821 /* Helper.swift in Sources */,
+				775D728B28F21A3600F65821 /* Result.swift in Sources */,
+				775D728A28F21A3600F65821 /* Flow.swift in Sources */,
 				7738E6B828E784C300482FEF /* SettingsViewController.swift in Sources */,
+				775D728928F21A3600F65821 /* Game.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

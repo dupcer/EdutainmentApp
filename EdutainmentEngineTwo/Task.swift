@@ -77,25 +77,6 @@ struct Task {
         ].shuffled()
     }
     
-//    private func getWrongOptions(amountOfOptions: Int, correctOption except: Float) -> [Float] {
-//        var arrayToReturn: [Float] = []
-//        var arrayOfAll: [Float] = [except]
-//        var i = 0
-//        while i < amountOfOptions {
-//            let randomNumber: Float = getRandomNumberWithinRange()
-//            if (arrayOfAll.firstIndex(of: randomNumber) == nil) {
-//                arrayOfAll.append(randomNumber)
-//                arrayToReturn.append(randomNumber)
-//            } else {
-//                var numberToAdd = arrayOfAll.sorted().last ?? 1
-//                numberToAdd += 1
-//                arrayOfAll.append(numberToAdd)
-//                arrayToReturn.append(numberToAdd)
-//            }
-//            i += 1
-//        }
-//        return arrayToReturn
-//    }
     
     private mutating func getWrongOptions(amountOfOptions: Int, correctOption except: Float) -> [Float] {
         let remainder = except.truncatingRemainder(dividingBy: 2)
