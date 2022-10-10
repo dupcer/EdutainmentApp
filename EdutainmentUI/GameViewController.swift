@@ -42,7 +42,7 @@ class GameViewController: UIViewController, GameVCDelegate {
     //    var initialState: UIButton? = nil
     
     let errorMessageController = ErrorMessagesController()
-
+    
     
     @IBOutlet weak var startNewGameLabel: UILabel!
     
@@ -81,7 +81,7 @@ class GameViewController: UIViewController, GameVCDelegate {
             if let currentIteration = currentResult?["currentIteration"] {
                 if let allIterations = currentResult?["allIterations"] {
                     if currentIteration >= allIterations {
-                        // open results tabel
+                        showResults()
                     }
                 }
             }
@@ -167,6 +167,13 @@ class GameViewController: UIViewController, GameVCDelegate {
             $0.tintColor = UIColor.systemPurple
             $0.setTitleColor(UIColor.systemPurple, for: .normal)
         })
+    }
+    
+    private func showResults() {
+        let vc = ResultsTableViewController()
+        if let flow = flow {vc.updateFlow(flow)}
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
     }
 }
 

@@ -10,6 +10,7 @@ import UIKit
 class ErrorMessagesController: UIAlertController {
     
     func gameErrorMsg(for error: Flow.GameError) {
+        print(error)
         switch error {
         case .wrongRange:
             alert(title: "Error", message: "Hmm, seems like set range is not correct. Please try again", btnText: "OK")
