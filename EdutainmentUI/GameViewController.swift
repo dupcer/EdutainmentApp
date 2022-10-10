@@ -23,6 +23,7 @@ class GameViewController: UIViewController, GameVCDelegate {
         flow = newFlow
     }
     
+//    let progressBar = GameProgressView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +47,7 @@ class GameViewController: UIViewController, GameVCDelegate {
     
     @IBOutlet weak var startNewGameLabel: UILabel!
     
+    @IBOutlet weak var progressBar: UIProgressView!
     @IBOutlet weak var varOneLabel: UILabel!
     @IBOutlet weak var operationSignLabel: UILabel!
     @IBOutlet weak var varTwoLabel: UILabel!
@@ -81,7 +83,7 @@ class GameViewController: UIViewController, GameVCDelegate {
             if let currentIteration = currentResult?["currentIteration"] {
                 if let allIterations = currentResult?["allIterations"] {
                     if currentIteration >= allIterations {
-                        showResults()
+                        return showResults()
                     }
                 }
             }
@@ -109,7 +111,10 @@ class GameViewController: UIViewController, GameVCDelegate {
             option2Label.setTitle(options[1], for: .normal)
             option3Label.setTitle(options[2], for: .normal)
             
-            
+            if let currentIteration = flow?.getResult()["currentIteration"], let all = flow?.getResult()["allIterations"] {
+                let currentProgress: Float = 100 * Float(currentIteration) / Float(all) / 100
+                progressBar.setProgress(currentProgress, animated: true)
+            }
         }
     }
     
