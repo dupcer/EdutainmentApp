@@ -8,15 +8,15 @@
 import Foundation
 
 struct Task {
-    private let game: Game
+    private let game: GameData
 
-    var varOne: Int = -1
-    var varTwo: Int = -1
+    var varOne: UInt = 0
+    var varTwo: UInt = 0
     var correctAnswer: Float = -1
     var options: [Float] = []
-    var operation = Game.OperationType.addition
+    var operation = GameData.OperationType.addition
     
-    init(game: Game) {
+    init(game: GameData) {
         self.game = game
         populateTaskData()
     }
@@ -25,10 +25,10 @@ struct Task {
         switch game.operation {
         case .any:
             operation = [
-                Game.OperationType.addition,
-                Game.OperationType.subtraction,
-                Game.OperationType.division,
-                Game.OperationType.multiplication
+                GameData.OperationType.addition,
+                GameData.OperationType.subtraction,
+                GameData.OperationType.division,
+                GameData.OperationType.multiplication
             ].randomElement()!
         default:
             operation = game.operation
@@ -43,9 +43,9 @@ struct Task {
         
     }
     
-    private func getRandomNumberWithinRange() -> Int {
+    private func getRandomNumberWithinRange() -> UInt {
         let range = [game.rangeMin, game.rangeMax].sorted()
-        return Int.random(in: Int(range[0])...Int(range[1]))
+        return UInt.random(in: UInt(range[0])...UInt(range[1]))
     }
 
     
@@ -154,7 +154,7 @@ struct Task {
     }
 
     private func twoDigitRounded(_ number: Float) -> Float {
-        round(number * 100) / 100.0
+        return round(number * 100) / 100.0
     }
     
     enum NumberRoundType {

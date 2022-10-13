@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Game {
+class GameData {
     
     enum OperationType: String {
         case addition = "+",

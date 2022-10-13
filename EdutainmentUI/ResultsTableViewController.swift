@@ -9,27 +9,21 @@ import UIKit
 
 class ResultsTableViewController: UITableViewController, GameVCDelegate {
     
-    private var flow: Flow?
+    private var flow: GameFlow?
     var isFlowNil: Bool {
         get {
             (flow == nil)
         }
     }
     
-    func updateFlow(_ newFlow: Flow) {
+    func updateFlow(_ newFlow: GameFlow) {
         flow = newFlow
         if let results = flow?.getResultsTable() {
-            resultTable = results
+            self.results = results
         }
     }
     
-    private var resultTable: [ (
-        varOne: Int,
-        varTwo: Int,
-        operation: Game.OperationType,
-        correctAnswer: Float,
-        wasCorrectAnswerGiven: Bool
-    )] = []
+    private var results: [ResultItem] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +42,7 @@ class ResultsTableViewController: UITableViewController, GameVCDelegate {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        section == 0 ? resultTable.count : 1
+        section == 0 ? results.count : 1
     }
     
     
@@ -58,7 +52,7 @@ class ResultsTableViewController: UITableViewController, GameVCDelegate {
             return "Do you want to play again?"
         }
         
-        if let score = flow?.getResult()["score"], let all = flow?.getResult()["allIterations"] {
+        if let score = flow?.getCurrentResult()["score"], let all = flow?.getCurrentResult()["allIterations"] {
             let percent: Double = Double((100 * score) / all)
             return "Result: \(score) / \(all) (\(Int(percent))%)"
         }
@@ -86,15 +80,15 @@ class ResultsTableViewController: UITableViewController, GameVCDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ResultCell", for: indexPath)
         
         let textForCell: String =
-        String(resultTable[indexPath.row].varOne) + " " +
-        String(resultTable[indexPath.row].operation.rawValue) + " " +
-        String(resultTable[indexPath.row].varTwo) + " = " +
-        String(resultTable[indexPath.row].correctAnswer)
+        String(results[indexPath.row].varOne) + " " +
+        String(results[indexPath.row].operation.rawValue) + " " +
+        String(results[indexPath.row].varTwo) + " = " +
+        String(results[indexPath.row].correctAnswer)
         
         var content = cell.defaultContentConfiguration()
         content.text = textForCell
         
-        if resultTable[indexPath.row].wasCorrectAnswerGiven {
+        if results[indexPath.row].wasCorrectAnswerGiven {
             content.textProperties.color = .green
         } else {
             content.textProperties.color = .red

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Flow {
+class GameFlow {
     enum Status {
         case setting, started, paused, finished
     }
@@ -22,7 +22,7 @@ class Flow {
     var currentStatus = Status.setting
     
     /// GAME interactions 👇
-    private let game = Game()
+    private let game = GameData()
     
     func setGameRange(min: UInt, max: UInt) throws {
         if max <= min { throw GameError.wrongRange }
@@ -31,7 +31,7 @@ class Flow {
     }
     
     func getGameRange() -> [String: UInt] {
-        [
+        return [
             "rangeMin": game.rangeMin,
             "rangeMax": game.rangeMax
         ]
@@ -42,15 +42,15 @@ class Flow {
     }
     
     func getAmountOfAllIterations() -> UInt {
-        game.allIterations
+        return game.allIterations
     }
     
-    func setOperationType(_ value: Game.OperationType) {
+    func setOperationType(_ value: GameData.OperationType) {
         game.operation = value
     }
     
-    func getOperationType() -> Game.OperationType {
-        game.operation
+    func getOperationType() -> GameData.OperationType {
+        return game.operation
     }
     
     func start() {
@@ -59,19 +59,16 @@ class Flow {
     
     /// TASK interactions 👇
     func getNewTask() throws -> Task {
-        try checkNewTaskAllowed()
+        if game.currentIteration >= game.allIterations {
+            throw GameError.noNewTaskAsAllIterationsComplete
+        }
+        if currentStatus != .started {
+            throw GameError.currentStatusIsNotStarted
+        }
         
         let newTask = Task(game: game)
         currentTask = newTask
         return newTask
-    }
-    
-    private func checkNewTaskAllowed() throws {
-        if game.currentIteration >= game.allIterations {
-            throw GameError.noNewTaskAsAllIterationsComplete
-        
-        } else if currentStatus != .started {
-            throw GameError.currentStatusIsNotStarted }
     }
 
     /// RESULT interactions 👇
@@ -79,7 +76,10 @@ class Flow {
     private var currentTask: Task? = nil
     
     func answer(_ answer: Float) throws -> Bool {
-        if answer < 0 { throw GameError.givenAnswerIsInvalid }
+        guard answer >= 0
+        else {
+            throw GameError.givenAnswerIsInvalid
+        }
         
         game.currentIteration += 1
 
@@ -91,25 +91,20 @@ class Flow {
         if isCorrect {
             result.score += 1
         }
-        result.addTask(currentTask ?? nil, isCorrect: isCorrect)
+        result.addTask(currentTask ?? nil,
+                       isCorrect: isCorrect)
         return isCorrect
     }
     
-    func getResult() -> [String: UInt] {
-        [
+    func getCurrentResult() -> [String: UInt] { // TODO: refactor
+        return [
             "allIterations": game.allIterations,
             "currentIteration": game.currentIteration,
             "score": result.score
         ]
     }
     
-    func getResultsTable() -> [ (
-        varOne: Int,
-        varTwo: Int,
-        operation: Game.OperationType,
-        correctAnswer: Float,
-        wasCorrectAnswerGiven: Bool
-    )] {
-        result.getResultsTable()
+    func getResultsTable() -> [ResultItem] {
+        return result.resultItems
     }
 }

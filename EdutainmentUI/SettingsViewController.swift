@@ -7,15 +7,17 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController, UISplitViewControllerDelegate {
-    var flow: Flow = Flow()
+class SettingsViewController:
+        UIViewController,
+        UISplitViewControllerDelegate,
+        AlertPresentable
+{
     
-    let errorMessageController = ErrorMessagesController()
-    
-    
-    override func awakeFromNib() {
-        splitViewController?.delegate = self
+    var flow: GameFlow = GameFlow()
         
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        splitViewController?.delegate = self
     }
     
     func splitViewController(
@@ -29,19 +31,9 @@ class SettingsViewController: UIViewController, UISplitViewControllerDelegate {
             }
             return false
         }
-    
-    //    func splitViewController(_ svc: UISplitViewController, topColumnForCollapsingToProposedTopColumn proposedTopColumn: UISplitViewController.Column) -> UISplitViewController.Column {
-    //        .primary
-    //    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        
-    }
+
     
     override func viewDidAppear(_ animated: Bool) {
-        addChild(errorMessageController)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -55,22 +47,22 @@ class SettingsViewController: UIViewController, UISplitViewControllerDelegate {
     }
     
     // MARK: Operation Task Setting
-    var operation: Game.OperationType = .addition
+    var operation: GameData.OperationType = .addition
     
     @IBAction func operationSegmentedControl(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
-            operation = Game.OperationType.addition
+            operation = GameData.OperationType.addition
         case 1:
-            operation = Game.OperationType.subtraction
+            operation = GameData.OperationType.subtraction
         case 2:
-            operation = Game.OperationType.multiplication
+            operation = GameData.OperationType.multiplication
         case 3:
-            operation = Game.OperationType.division
+            operation = GameData.OperationType.division
         case 4:
-            operation = Game.OperationType.any
+            operation = GameData.OperationType.any
         default:
-            operation = Game.OperationType.addition
+            operation = GameData.OperationType.addition
         }
     }
     
@@ -127,13 +119,14 @@ class SettingsViewController: UIViewController, UISplitViewControllerDelegate {
     private func prepareFlow() {
         print(operation, rangeFrom, rangeTo, numberOfTasks)
         do {
-            flow = Flow()
+            flow = GameFlow()
             flow.setAmountOfAllIterations(numberOfTasks)
             flow.setOperationType(operation)
             try flow.setGameRange(min: rangeFrom, max: rangeTo)
             flow.start()
-        } catch let error as Flow.GameError {
-            self.errorMessageController.gameErrorMsg(for: error)
+        } catch let error as GameFlow.GameError {
+            let alertModel = error.toAlertModel()
+            self.presentAlert(title: alertModel.title, message: alertModel.message, buttonTitle: alertModel.buttonText)
         } catch {
             NSLog("THE ERROR OCURED WHILE STARTING THE GAME")
         }
@@ -155,15 +148,11 @@ class SettingsViewController: UIViewController, UISplitViewControllerDelegate {
         } else if let splitViewGameVC = lastSeguedToGameVewController { // for iPhone
             performSegue(withIdentifier: "StartGame", sender: sender)
             splitViewGameVC.updateFlow(flow)
-            //            navigationController?.pushViewController(splitViewGameVC, animated: true)
         }
-        //        else {
-        //            performSegue(withIdentifier: "StartGame", sender: sender)
-        //        }
     }
 }
 
 protocol GameVCDelegate {
-    func updateFlow(_ newFlow: Flow)
+    func updateFlow(_ newFlow: GameFlow)
 }
 

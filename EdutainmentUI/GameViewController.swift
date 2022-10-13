@@ -7,10 +7,10 @@
 
 import UIKit
 
-class GameViewController: UIViewController, GameVCDelegate {
+class GameViewController: UIViewController, GameVCDelegate, AlertPresentable {
     let decimalPoint = 2
     
-    private var flow: Flow?
+    private var flow: GameFlow?
     var isFlowNil: Bool {
         get {
             (flow == nil)
@@ -19,7 +19,7 @@ class GameViewController: UIViewController, GameVCDelegate {
     
     var task: Task?
     
-    func updateFlow(_ newFlow: Flow) {
+    func updateFlow(_ newFlow: GameFlow) {
         flow = newFlow
     }
     
@@ -37,12 +37,7 @@ class GameViewController: UIViewController, GameVCDelegate {
             startNewGameLabel.isHidden = true
             triggerUIRefresh.toggle()
         }
-        addChild(errorMessageController)
     }
-    
-    //    var initialState: UIButton? = nil
-    
-    let errorMessageController = ErrorMessagesController()
     
     
     @IBOutlet weak var startNewGameLabel: UILabel!
@@ -64,8 +59,9 @@ class GameViewController: UIViewController, GameVCDelegate {
         var isCorrect: Bool = false
         do {
             isCorrect = try flow?.answer(floatAnswer) ?? false
-        } catch let error as Flow.GameError {
-            self.errorMessageController.gameErrorMsg(for: error)
+        } catch let error as GameFlow.GameError {
+            let alertModel = error.toAlertModel()
+            self.presentAlert(title: alertModel.title, message: alertModel.message, buttonTitle: alertModel.buttonText)
         } catch {
             NSLog("AN ERROR OCCURED WHILE SUBMITTING THE ANSWER TO TASK")
         }
@@ -79,7 +75,7 @@ class GameViewController: UIViewController, GameVCDelegate {
         willSet {
             loadViewIfNeeded()
             
-            let currentResult = flow?.getResult()
+            let currentResult = flow?.getCurrentResult()
             if let currentIteration = currentResult?["currentIteration"] {
                 if let allIterations = currentResult?["allIterations"] {
                     if currentIteration >= allIterations {
@@ -90,8 +86,9 @@ class GameViewController: UIViewController, GameVCDelegate {
             
             do {
                 try task = flow?.getNewTask()
-            } catch let error as Flow.GameError {
-                self.errorMessageController.gameErrorMsg(for: error)
+            } catch let error as GameFlow.GameError {
+                let alertModel = error.toAlertModel()
+                self.presentAlert(title: alertModel.title, message: alertModel.message, buttonTitle: alertModel.buttonText)
             } catch {
                 NSLog("AN ERROR OCCURED REFRESHING AND GETTING A NEW TASK")
             }
@@ -111,9 +108,12 @@ class GameViewController: UIViewController, GameVCDelegate {
             option2Label.setTitle(options[1], for: .normal)
             option3Label.setTitle(options[2], for: .normal)
             
-            if let currentIteration = flow?.getResult()["currentIteration"], let all = flow?.getResult()["allIterations"] {
+            if let currentIteration = flow?.getCurrentResult()["currentIteration"], let all = flow?.getCurrentResult()["allIterations"] {
                 let currentProgress: Float = 100 * Float(currentIteration) / Float(all) / 100
-                progressBar.setProgress(currentProgress, animated: true)
+                DispatchQueue.main.async {
+                    self.progressBar.setProgress(currentProgress, animated: true)
+                }
+
             }
         }
     }

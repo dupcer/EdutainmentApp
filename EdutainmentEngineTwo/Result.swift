@@ -10,36 +10,28 @@ import Foundation
 class Result {
     var score: UInt = 0
     
-    private var resultsTable: [
-        (
-            varOne: Int,
-            varTwo: Int,
-            operation: Game.OperationType,
-            correctAnswer: Float,
-            wasCorrectAnswerGiven: Bool
-        )
-    ] = []
+    private(set) var resultItems: [ResultItem] = []
     
     func addTask(_ task: Task?, isCorrect: Bool) {
         guard let task = task else {
             return
         }
-        resultsTable.append( (
+        let resultItem = ResultItem(
             varOne: task.varOne,
             varTwo: task.varTwo,
             operation: task.operation,
             correctAnswer: task.correctAnswer,
             wasCorrectAnswerGiven: isCorrect
-        ))
+        )
+        resultItems.append(resultItem)
     }
-    
-    func getResultsTable() -> [ (
-        varOne: Int,
-        varTwo: Int,
-        operation: Game.OperationType,
-        correctAnswer: Float,
-        wasCorrectAnswerGiven: Bool
-    )] {
-        resultsTable
-    }
+
+}
+
+struct ResultItem {
+    let varOne: UInt
+    let varTwo: UInt
+    let operation: GameData.OperationType
+    let correctAnswer: Float
+    let wasCorrectAnswerGiven: Bool
 }
