@@ -12,21 +12,10 @@ I've worked with: UITableVC, UIButton, UILabel, UIStepper, UISlider, UISegmented
 ### Tests and TDD
 I used TDD approach, for Model, writing unit tests before actual implementation. It did help me a lot later, as I was making any changes to my Model it was quick and easy to detect any problems that my Controller would have otherwise.
 
-## Screenshots:
+## Screen record:
+<img src="https://user-images.githubusercontent.com/68953880/195889829-54b38899-b3af-4e99-af96-faf3832909bb.gif" width="300">
 
-### 1. Starting screen: 
-<!-- ![image]() -->
-<img src="https://user-images.githubusercontent.com/68953880/195648804-fd5da7f3-dfaf-453d-8a3a-53018596357f.png" width="250">
 
-### 2. Task screens:
-### correct answer:
-<img src="https://user-images.githubusercontent.com/68953880/195648146-266c8e17-8a6e-48a6-a718-9c1239e9e855.png" width="250">
-
-### incorrect answer:
-<img src="https://user-images.githubusercontent.com/68953880/195648387-2a628f11-0ad3-401e-9444-aff1526e06b9.png" width="250">
-
-### 3. Results -- final screen:
-<img src="https://user-images.githubusercontent.com/68953880/195648725-5980a4e7-d3f2-43d8-9f8c-ba7d8fbd0cad.png" width="250">
 
 ## How to Install and Run the Project
 
